@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+    <h1>Weather App</h1>
+    <p>This website uses the OpenWeatherMap API to provide
+        you with the latest weather conditions for your city.</p>
+
+    <p>For states and countries, please enter a two-letter abbreviation.</p>
+
+    <input
+            type="text"
+            id = "inputCity"
+            placeholder="Enter city name">
+
+    <label for = "inputCity">City</label>
+
+    <p></p>
+
+    <input
+            type="text"
+            id = "inputState"
+            placeholder = "Enter state">
+
+    <label for = "inputState">State (if applicable)</label>
+
+    <p></p>
+
+    <input
+            type="text"
+            id = "inputCountry"
+            placeholder="Enter Country name">
+
+    <label for = "inputCountry">Country</label>
+
+    <p></p>
+
+    <div id = "unitOptions">
+        <input
+            type="radio"
+            id = "fToggle"
+            name = "tempChoice"
+            value = "fahrenheit"
+        >
+        <label for = "fToggle">Fahrenheit</label>
+
+        <input
+            type="radio"
+            id = "cToggle"
+            name = "tempChoice"
+            value = "celsius"
+        >
+        <label for = "cToggle">Celsius</label>
+    </div>
+
+    <p></p>
+
+    <button
+        id= "getWeather"
+        type="button">
+
+        Get Weather!</button>
+
+    <p></p>
+
+    <div id="output"></div>
+
+
+    <script src="index.js"></script>
+
+</body>
+</html>
