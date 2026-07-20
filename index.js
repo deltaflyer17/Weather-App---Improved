@@ -66,7 +66,7 @@ async function outputWeather() {
         Wind Speed: ${data.windSpeed} ${speedUnits} @ ${data.windSpeed}° gusting ${data.windGust} ${speedUnits}
     `
 
-    // 'map' is your already instantiated map object
+    // update map
     map.jumpTo({
         center: [data.lon, data.lat],
         zoom: 12
