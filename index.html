@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.26.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.26.0/mapbox-gl.js"></script>
 </head>
-
+<style>
+    body { margin: 5; padding: 0; }
+    #map {width: 600px;
+        height: 400px;
+        margin-top: 20px;}
+</style>
 
 <body>
+
 
     <h1>Weather App</h1>
     <p>This website uses the OpenWeatherMap API to provide
@@ -71,8 +79,16 @@
 
     <p></p>
 
+    <button
+        id = "getMap"
+        type="button">
+        Generate Map</button>
+
+    <p></p>
+
     <div id="output"></div>
 
+    <div id="map"></div>
 
     <script src="index.js"></script>
 
