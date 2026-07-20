@@ -8,7 +8,7 @@ const output = document.getElementById("output")
 const unitOptions = document.getElementById("unitOptions")
 const getMap = document.getElementById("getMap")
 
-const API_KEY = ''
+
 let units = ""
 let displayUnits = ""
 let speedUnits = ""
@@ -36,7 +36,7 @@ getWeather.addEventListener("click", () => {
 
 getMap.addEventListener("click", () => {
     map = new mapboxgl.Map({
-        accessToken: '',
+        accessToken: 'pk.eyJ1IjoiZGVsdGFmbHllcjE3IiwiYSI6ImNtcnBscXBkaDAxM2QyeG9rc2t2Znp0eG8ifQ.kfBe_Fgly6ANs5ESglacBA',
         container: 'map',
         center: [-89.6170, 20.9754],
         zoom: 12
@@ -48,49 +48,30 @@ async function outputWeather() {
     const city = inputCity.value
     const state = inputState.value
     const country = inputCountry.value
-    console.log(city + ", " + state + ", " + country)
 
-    const geoResponse = await fetch(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${API_KEY}`
+
+    const response = await fetch(
+        `http://localhost:3000/weather?city=${city}&state=${state}&country=${country}&units=${units}`
     )
 
-    console.log(geoResponse)
-
-    const geoData = await geoResponse.json()
-
-    if(geoData.length > 0){
-        console.log(geoData)
-
-        const lat = geoData[0].lat
-        const lon = geoData[0].lon
-
-        console.log(lat)
-        console.log(lon)
+    const data = await response.json()
+    console.log(data)
 
 
-        const weatherResponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`
-        )
-
-        const weatherData = await weatherResponse.json()
-        console.log(weatherData)
-
-        output.innerText = `
-        City: ${weatherData.name}
-        Conditions: ${weatherData.weather[0].description} 
-        Temperature: ${weatherData.main.temp}°${displayUnits}
-        Feels Like: ${weatherData.main.feels_like}°${displayUnits}
-        Wind Speed: ${weatherData.wind.speed} ${speedUnits}
+    output.innerText = `
+        City: ${data.city}
+        Conditions: ${data.conditions}
+        Temperature: ${data.temperature}°${displayUnits}
+        Feels Like: ${data.feelsLike}°${displayUnits}
+        Wind Speed: ${data.windSpeed} ${speedUnits} @ ${data.windSpeed}° gusting ${data.windGust} ${speedUnits}
     `
 
-        // 'map' is your already instantiated map object
-        map.jumpTo({
-            center: [lon, lat],
-            zoom: 12
-        });
-    } else {
-        output.innerText = `City not found. Please try again.`
-    }
+    // 'map' is your already instantiated map object
+    map.jumpTo({
+        center: [data.lon, data.lat],
+        zoom: 12
+    });
+
 
 }
 
