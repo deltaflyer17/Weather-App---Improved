@@ -1,4 +1,93 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: cornflowerblue;
+    background-color: lightslategrey;
+    margin: 5px;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+.search-container input {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#map {
+    width: 600px;
+    height: 400px;
+}
+
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.weather-card {
+    background-color: beige;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+nav {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.nav-links{
+    display: flex;
+    gap: 20px;
+}
+
+.links-container {
+    display: flex;
+    gap: 20px;
+}
+
+.links-container a {
+    text-decoration: none;
+    color: black;
+}
+
+.links-container a:hover {
+    cursor: pointer;
+    color: white;
+    transition: 0.7s;
+}
+
+
+.buttons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+#getWeather:hover {
+    background-color: gray;
+    color: white;
+    cursor: crosshair;
+
+}
+
+#getWeather{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+#getMap:hover {
+    background-color: gray;
+    color: white;
+    cursor: crosshair;
+}
+
+#getMap{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
 }

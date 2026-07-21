@@ -4,9 +4,13 @@ const getWeather = document.getElementById("getWeather")
 const inputCity = document.getElementById("inputCity")
 const inputState = document.getElementById("inputState")
 const inputCountry = document.getElementById("inputCountry")
-const output = document.getElementById("output")
 const unitOptions = document.getElementById("unitOptions")
 const getMap = document.getElementById("getMap")
+const cityName = document.getElementById("cityName");
+const conditions = document.getElementById("conditions");
+const temperature = document.getElementById("temperature");
+const feelsLike = document.getElementById("feels-like");
+const winds = document.getElementById("winds");
 
 
 let units = ""
@@ -58,13 +62,12 @@ async function outputWeather() {
     console.log(data)
 
 
-    output.innerText = `
-        City: ${data.city}
-        Conditions: ${data.conditions}
-        Temperature: ${data.temperature}°${displayUnits}
-        Feels Like: ${data.feelsLike}°${displayUnits}
-        Wind Speed: ${data.windSpeed} ${speedUnits} @ ${data.windSpeed}° gusting ${data.windGust} ${speedUnits}
-    `
+
+    cityName.innerText = `Location: ${data.city}`;
+    conditions.innerText = `Conditions: ${data.conditions}`;
+    temperature.innerText = `Current temperature: ${data.temperature}°${displayUnits}`;
+    feelsLike.innerText = `Feels like ${data.feelsLike}°${displayUnits}`;
+    winds.innerText = `Current winds: ${data.windSpeed} ${speedUnits} @ ${data.windDir}° gusting ${data.windGust} ${speedUnits}`;
 
     // update map
     map.jumpTo({

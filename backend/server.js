@@ -17,18 +17,6 @@ app.get("/", (req, res) => {
     res.send("Backend")
 })
 
-app.get("/test", (req, res) => {
-    res.send("Test route")
-})
-
-app.get("/hello", (req, res) => {
-    const name = req.query.name;
-
-    res.json({
-        message: `Hello ${name}`,
-        time: new Date()
-    });
-});
 
 app.get("/weather", async (req, res) => {
     const city = req.query.city;
@@ -36,11 +24,15 @@ app.get("/weather", async (req, res) => {
     const country = req.query.country;
     const units = req.query.units;
 
+    console.log("API key loaded:", !!API_KEY);
+    console.log("API key length:", API_KEY?.length);
+
     const geoResponse = await fetch(
         `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${API_KEY}`
     )
 
     const geoData = await geoResponse.json()
+
 
     if(geoData.length > 0){
         console.log(geoData)
@@ -74,7 +66,10 @@ app.get("/weather", async (req, res) => {
         res.json(response)
 
     } else {
-        output.innerText = `City not found. Please try again.`
+       const errorResponse = {
+           message: `Unknown city: ${city}`,
+       }
+       res.send(errorResponse)
     }
 
 })

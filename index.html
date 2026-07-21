@@ -8,87 +8,104 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.26.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.26.0/mapbox-gl.js"></script>
 </head>
-<style>
-    body { margin: 5; padding: 0; }
-    #map {width: 600px;
-        height: 400px;
-        margin-top: 20px;}
-</style>
-
 <body>
 
+    <nav>
+        <div class="logo">Muffin</div>
 
-    <h1>Weather App</h1>
-    <p>This website uses the OpenWeatherMap API to provide
-        you with the latest weather conditions for your city.</p>
+        <div class="links-container">
+            <a id ="home" href="#">Home</a>
+            <a id ="activities" href="#">Activities</a>
+            <a id = "about" href="#">About</a>
+        </div>
 
-    <p>For states and countries, please enter a two-letter abbreviation.</p>
+    </nav>
 
-    <input
-            type="text"
-            id = "inputCity"
-            placeholder="Enter city name">
+    <main>
 
-    <label for = "inputCity">City</label>
+        <h1>Weather App</h1>
+        <p>This website uses the OpenWeatherMap API to provide
+            you with the latest weather conditions for your city.</p>
 
-    <p></p>
+        <p>For states and countries, please enter a two-letter abbreviation.</p>
 
-    <input
-            type="text"
-            id = "inputState"
-            placeholder = "Enter state">
+        <div class="search-container">
+            <input
+                    type="text"
+                    id = "inputCity"
+                    placeholder="Enter city name">
 
-    <label for = "inputState">State (if applicable)</label>
+            <label for = "inputCity">City</label>
 
-    <p></p>
+            <p></p>
 
-    <input
-            type="text"
-            id = "inputCountry"
-            placeholder="Enter Country name">
+            <input
+                    type="text"
+                    id = "inputState"
+                    placeholder = "Enter state">
 
-    <label for = "inputCountry">Country</label>
+            <label for = "inputState">State (if applicable)</label>
 
-    <p></p>
+            <p></p>
 
-    <div id = "unitOptions">
-        <input
-            type="radio"
-            id = "fToggle"
-            name = "tempChoice"
-            value = "fahrenheit"
-        >
-        <label for = "fToggle">Fahrenheit</label>
+            <input
+                    type="text"
+                    id = "inputCountry"
+                    placeholder="Enter Country name">
 
-        <input
-            type="radio"
-            id = "cToggle"
-            name = "tempChoice"
-            value = "celsius"
-        >
-        <label for = "cToggle">Celsius</label>
-    </div>
+            <label for = "inputCountry">Country</label>
 
-    <p></p>
+            <p></p>
 
-    <button
-        id= "getWeather"
-        type="button">
+            <div id = "unitOptions">
+                <input
+                    type="radio"
+                    id = "fToggle"
+                    name = "tempChoice"
+                    value = "fahrenheit"
+                >
+                <label for = "fToggle">Fahrenheit</label>
 
-        Get Weather!</button>
+                <input
+                    type="radio"
+                    id = "cToggle"
+                    name = "tempChoice"
+                    value = "celsius"
+                >
+                <label for = "cToggle">Celsius</label>
+            </div>
+        </div>
 
-    <p></p>
+        <p></p>
 
-    <button
-        id = "getMap"
-        type="button">
-        Generate Map</button>
+        <div class="buttons-container">
+            <button
+                id= "getWeather"
+                type="button">
 
-    <p></p>
+                Get Weather!</button>
+            <p></p>
+            <button
+                    id = "getMap"
+                    type="button">
+                Generate Map</button>
+        </div>
 
-    <div id="output"></div>
 
-    <div id="map"></div>
+        <p></p>
+
+        <div class = "main-container">
+            <div class="weather-card">
+                <h2 id="cityName"></h2>
+                <p id="conditions"></p>
+                <div id="temperature"></div>
+                <p id="feels-like"></p>
+                <p id="winds"></p>
+            </div>
+            <div id="map"></div>
+        </div>
+
+    </main>
 
     <script src="index.js"></script>
 
