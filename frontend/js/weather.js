@@ -11,6 +11,8 @@ const conditions = document.getElementById("conditions");
 const temperature = document.getElementById("temperature");
 const feelsLike = document.getElementById("feels-like");
 const winds = document.getElementById("winds");
+const home = document.getElementById("home");
+const humidity = document.getElementById("humidity");
 
 
 let units = ""
@@ -18,6 +20,9 @@ let displayUnits = ""
 let speedUnits = ""
 let map
 
+home.addEventListener("click", (e) => {
+    window.location.href="/"
+})
 
 unitOptions.addEventListener("change", (e) => {
     const unitsSelection = e.target.value;
@@ -67,12 +72,16 @@ async function outputWeather() {
     temperature.innerText = `Current temperature: ${data.temperature}°${displayUnits}`;
     feelsLike.innerText = `Feels like ${data.feelsLike}°${displayUnits}`;
     winds.innerText = `Current winds: ${data.windSpeed} ${speedUnits} @ ${data.windDir}° gusting ${data.windGust} ${speedUnits}`;
+    humidity.innerText = `Current humidity: ${data.humidity}`;
 
     // update map
     map.jumpTo({
         center: [data.lon, data.lat],
         zoom: 12
     });
+
+    const ratings = calculateRunningRating(data, units)
+
 
 
 }

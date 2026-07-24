@@ -1,0 +1,62 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: darkgrey;
+    font-family: Monaco, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("/images/pexels-pixabay-258045.jpg");
+    background-size: auto;
+    background-position: center;
+    flex-direction: column;
+}
+
+
+#header{
+    text-align: center;
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 9px 12px rgba(0,0,0,0.4);
+}
+
+#h1{
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+#h2{
+    width: 900px;
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 100px;
+
+}
+
+.buttons button {
+    padding: 24px 40px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: dimgray;
+    color: white;
+}
+
+.buttons button.primary{
+    background-color: orangered;
+}
+
+.buttons button:hover{
+    border: black solid 2px;
+    transform: scale(1.05);
+    transition: 1s ease;
+    background-color: crimson;
+}

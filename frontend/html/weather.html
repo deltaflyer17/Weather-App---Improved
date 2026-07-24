@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/weather.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.26.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.26.0/mapbox-gl.js"></script>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Muffin</div>
+        <div class="logo">TrainingOutlook</div>
 
         <div class="links-container">
             <a id ="home" href="#">Home</a>
@@ -23,11 +23,7 @@
 
     <main>
 
-        <h1>Weather App</h1>
-        <p>This website uses the OpenWeatherMap API to provide
-            you with the latest weather conditions for your city.</p>
-
-        <p>For states and countries, please enter a two-letter abbreviation.</p>
+        <h1 id="enterLocation">Check Conditions</h1>
 
         <div class="search-container">
             <input
@@ -94,6 +90,11 @@
 
         <p></p>
 
+        <div class="main-labels">
+            <p id = "weatherLabel">Current Weather</p>
+            <p id = "mapLabel">Map (click "generate map" to display)</p>
+        </div>
+
         <div class = "main-container">
             <div class="weather-card">
                 <h2 id="cityName"></h2>
@@ -101,13 +102,62 @@
                 <div id="temperature"></div>
                 <p id="feels-like"></p>
                 <p id="winds"></p>
+                <p id="humidity"></p>
             </div>
             <div id="map"></div>
         </div>
 
+    <h1 id="training-header">Training Outlook</h1>
+
+
+
+   <div class="training-labels">
+       <p id="running-label">Running</p>
+       <p id="cycling-label">Cycling</p>
+       <p id="walking-label">Walking</p>
+   </div>
+
+    <div class="training-container">
+        <div class="running-card">
+            <p id="running-temp">Temperature:</p>
+            <p id="running-fl">Feels Like:</p>
+            <p id="running-humidity">Humidity:</p>
+            <p id="running-wind">Wind:</p>
+            <p id="running-rating">Rating: </p>
+        </div>
+        <div class="cycling-card">
+            <p id="cycling-temp">Temperature:</p>
+            <p id="cycling-fl">Feels Like:</p>
+            <p id="cycling-humidity">Humidity:</p>
+            <p id="cycling-wind">Wind:</p>
+            <p id="cycling-rating">Rating: </p>
+        </div>
+        <div class="walking-card">
+            <p id="walking-temp">Temperature:</p>
+            <p id="walking-fl">Feels Like:</p>
+            <p id="walking-humidity">Humidity:</p>
+            <p id="walking-wind">Wind:</p>
+            <p id="walking-rating">Rating: </p>
+        </div>
+
+    </div>
+
+        <footer>
+            <p id="footer-desc">© 2026 TrainingOutlook - Ulises Gaytan Lobato</p>
+
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/weather">Weather</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact</a>
+            </div>
+        </footer>
+
     </main>
 
-    <script src="index.js"></script>
+    <script src="../js/runningRating.js"></script>
+    <script src="../js/weather.js"></script>
+
 
 </body>
 </html>
