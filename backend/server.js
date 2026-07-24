@@ -3,29 +3,35 @@ require("dotenv").config()
 // gives app access to express, like importing a library
 const express = require('express');
 
+const path = require("path");
+
 // create server
 const app = express();
 const API_KEY = process.env.OPENWEATHER_API_KEY
+
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 const cors = require("cors");
 
 app.use(cors());
 
 // creating a route
-// when a GET request is sent to /, send this message
+// when a GET request is sent to /, send the landing.html file
+// in this case being the home/landing page
 app.get("/", (req, res) => {
-    res.send("Backend")
+    res.sendFile(path.join(__dirname, "../frontend/html/landing.html"));
+});
+
+app.get("/weather", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/html/weather.html"));
 })
 
-
-app.get("/weather", async (req, res) => {
+app.get("/api/weather", async (req, res) => {
     const city = req.query.city;
     const state = req.query.state;
     const country = req.query.country;
     const units = req.query.units;
 
-    console.log("API key loaded:", !!API_KEY);
-    console.log("API key length:", API_KEY?.length);
 
     const geoResponse = await fetch(
         `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${API_KEY}`
@@ -60,7 +66,8 @@ app.get("/weather", async (req, res) => {
             windDir: weatherData.wind.deg,
             windGust: weatherData.wind.gust || "N/A",
             lat: lat,
-            lon: lon
+            lon: lon,
+            humidity: weatherData.main.humidity
         }
 
         res.json(response)

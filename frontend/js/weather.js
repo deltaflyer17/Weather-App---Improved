@@ -55,12 +55,11 @@ async function outputWeather() {
 
 
     const response = await fetch(
-        `http://localhost:3000/weather?city=${city}&state=${state}&country=${country}&units=${units}`
+        `/api/weather?city=${city}&state=${state}&country=${country}&units=${units}`
     )
 
     const data = await response.json()
     console.log(data)
-
 
 
     cityName.innerText = `Location: ${data.city}`;
